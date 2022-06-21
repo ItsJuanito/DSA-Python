@@ -4,7 +4,8 @@ A linked list is a linear data structure, in which the elements are not stored a
 In short, a linked list consists of nodes where each node contains a data field and a reference(link) to the 
 next node in the list.
 '''
-
+from dataclasses import dataclass
+from typing import Any
 # This class consists of a node object with data and a reference to the next node
 class Node:
     # constructor method that sets node data and next
@@ -19,7 +20,6 @@ class LinkedList():
     def __init__(self, data):
         # create an instance of Node object
         self.head = Node(data)
-    
     # method that pushes a node at the beginning of the linked list
     def push(self, data):
         # create instance of a new node
@@ -173,6 +173,34 @@ class LinkedList():
         string += "None"
         print(string)
 
+    # how to reverse a linked list
+    def reverse(self):
+        # create a previous node
+        prev = None
+        # set the current equal to the head
+        current = self.head
+        # loop through the linked list
+        while current != None:
+            # set the temperary node equal to the next node
+            temp = current.next
+            # set the next node equal to the previous node
+            current.next = prev
+            # set the previous equal to the current node
+            prev = current
+            # reset current to the temperary node
+            current = temp
+
+        # print the reversed linked list
+        string = ""
+        while prev != None:
+            # append the data to the string
+            string += str(prev.data) + "->"
+            # proceed to the next node
+            prev = prev.next
+        # append the 'None' string
+        string += "None"
+        print(string)
+
 
 # Test the Linked List class and methods
 if __name__ == '__main__':
@@ -198,6 +226,8 @@ if __name__ == '__main__':
     ll.print()
     # length(), returns the length of the linked list
     print(ll.length())
+    # reverse(), prints out the reversed linked list
+    sll = ll.reverse()
     
 '''
 Sample Outputs:
@@ -208,4 +238,5 @@ Sample Outputs:
 - 1->2->3->12->None
 - 1->2->3->None
 - 3
+- 3->2->1->None
 '''
