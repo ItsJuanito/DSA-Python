@@ -198,7 +198,7 @@ if __name__ == '__main__':
     ll.print()
     # length(), returns the length of the linked list
     print(ll.length())
-
+    
 '''
 Sample Outputs:
 - 2->None
