@@ -4,8 +4,7 @@ A linked list is a linear data structure, in which the elements are not stored a
 In short, a linked list consists of nodes where each node contains a data field and a reference(link) to the 
 next node in the list.
 '''
-from dataclasses import dataclass
-from typing import Any
+
 # This class consists of a node object with data and a reference to the next node
 class Node:
     # constructor method that sets node data and next
@@ -14,6 +13,7 @@ class Node:
         self.data = data
         # set next reference equal to None 
         self.next = None
+
 # This class consists of making a linked list out of the Node's class
 class LinkedList():
     # constructor method, adds a single node value with next = None
