@@ -144,5 +144,18 @@ if __name__ == "__main__":
 
     print(ll.get(4))
     print(ll.get(2))
-    
+
     print("Length: " + str(ll.length()))
+
+'''
+Sample Outputs:
+- None<->10<->21<->18<->None
+- None<->1<->5<->10<->21<->18<->None
+- None<->1<->5<->55<->10<->21<->18<->None
+- None<->1<->5<->11<->10<->21<->18<->None
+- None<->1<->5<->10<->21<->18<->None
+- None<->1<->10<->21<->18<->None
+- Index does not exist!
+- 21
+- Length: 4
+'''
