@@ -1,5 +1,5 @@
 '''
-This is module contains both a Node and a LinkedList class to create a doubly linked list data 
+This module contains both a Node and a LinkedList class to create a doubly linked list data 
 structure. A Doubly Linked List (DLL) contains an extra pointer, typically called the previous 
 pointer, together with next pointer and data which are there in singly linked list. 
 '''
@@ -133,7 +133,7 @@ class LinkedList:
             current = current.next
         string += "None"
         print(string)
-        
+
     # this method prints the linked list bakwards
     def print_backward(self):
         if self.head == None:

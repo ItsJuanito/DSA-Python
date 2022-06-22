@@ -1,5 +1,5 @@
 '''
-This is module contains both a Node and a LinkedList class to create a signly linked list data structure.
+This module contains both a Node and a LinkedList class to create a signly linked list data structure.
 A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations.
 In short, a linked list consists of nodes where each node contains a data field and a reference(link) to the 
 next node in the list.
