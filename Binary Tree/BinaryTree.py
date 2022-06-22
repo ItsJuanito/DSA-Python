@@ -71,4 +71,11 @@ Sample Output:
  - Pre order: [10, 4, 6, 12]
  - In order: [4, 6, 10, 12]
  - Post order: [4, 6, 12, 10]
+
+ Tree Structure:
+          10
+       /      \
+      4       12
+    /   \   /    \
+  None   6 None  None
 '''
