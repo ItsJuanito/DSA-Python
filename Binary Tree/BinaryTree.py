@@ -51,7 +51,7 @@ class TreeNode:
         print(self.data, end=" ")
         if self.right:
             self.right.printTree()
-    
+    # this method returns a list of the tree using a depth first search (by subtree)
     def depthFirstSearch(self, root):
         if root == None:
             return []
@@ -65,7 +65,7 @@ class TreeNode:
             if current.left:
                 stack.append(current.left)
         return result
-    
+    # this method returns a list of the tree using a breadth first search (by levels)
     def breadthFirstSearch(self, root):
         if root == None:
             return []
