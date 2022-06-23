@@ -51,6 +51,35 @@ class TreeNode:
         print(self.data, end=" ")
         if self.right:
             self.right.printTree()
+    
+    def depthFirstSearch(self, root):
+        if root == None:
+            return []
+        result = []
+        stack = [root]
+        while len(stack) > 0:
+            current = stack.pop()
+            result.append(current.data)
+            if current.right:
+                stack.append(current.right)
+            if current.left:
+                stack.append(current.left)
+        return result
+    
+    def breadthFirstSearch(self, root):
+        if root == None:
+            return []
+        result = []
+        queue = [root]
+        while len(queue) > 0:
+            current = queue.pop()
+            result.append(current.data)
+            if current.left:
+                queue.insert(0, current.left)
+            if current.right:
+                queue.insert(0, current.right)
+        return result
+
 
 # Test Binary Tree Node Methods
 if __name__ == "__main__":
@@ -65,17 +94,22 @@ if __name__ == "__main__":
     print("In order: " + str(a.inOrderTraversal(a)))
     print("Post order: " + str(a.postOrderTraversal(a)))
 
+    print(a.depthFirstSearch(a))
+    print(a.breadthFirstSearch(a))
+
 '''
 Sample Output:
  - 4 6 10 12 
  - Pre order: [10, 4, 6, 12]
  - In order: [4, 6, 10, 12]
  - Post order: [4, 6, 12, 10]
+ - [10, 4, 6, 12]
+ - [10, 4, 12, 6]
 
  Tree Structure:
           10
        /      \
       4       12
-    /   \   /    \
+    /   \    /   \
   None   6 None  None
 '''
