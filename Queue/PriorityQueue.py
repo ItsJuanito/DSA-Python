@@ -4,7 +4,6 @@ some priority value associated with it. The priority of the elements in a priori
 determines the order in which elements are served. If in any case the elements have same 
 priority, they are served as per their ordering in the queue.
 '''
-
 # Priority Queue class that contains a queue list and methods 
 class PQueue:
     queue = []

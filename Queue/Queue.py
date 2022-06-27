@@ -5,7 +5,6 @@ queue of consumers for a resource where the consumer that came first is served f
 The difference between stacks and queues is in removing. In a stack we remove the item 
 the most recently added; in a queue, we remove the item the least recently added.
 '''
-
 # Queue class contains a queue list and methods
 class Queue:
     queue = []
