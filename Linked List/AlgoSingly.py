@@ -1,5 +1,5 @@
 '''
-This module contains is composed of algorithms used for singly linked list.
+This module is composed of algorithms used for singly linked list.
 '''
 # import the "Node" object from the "SinglyLinkedList" module
 from SinglyLinkedList import Node
