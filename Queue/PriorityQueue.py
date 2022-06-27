@@ -31,7 +31,7 @@ class PQueue:
         for tuple in self.queue:
             print(str(tuple[1]) + " ", end="")
         print()
-
+# Test Priority Queue methods
 if __name__ == "__main__":
     # instance of PQueue class
     pq = PQueue()
