@@ -71,7 +71,7 @@ def zipper_list(first, second):
     elif second == None:
         return first
     newNode = None
-    while first != None:
+    while first != None or second != None:
         if first != None:
             newNode = first
             print(str(newNode.data) + "->", end="")
