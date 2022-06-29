@@ -18,6 +18,8 @@ class Stack:
     # this method returns the item at the top of the stack
     def peek(self):
         return self.stack[len(self.stack) - 1]
+    def size(self):
+        return len(self.stack)
     # this method returns the position of the data that is being searched
     def search(self, data):
         count = 1
@@ -43,6 +45,8 @@ if __name__ == "__main__":
     print(s.peek())
     
     print(s)
+    # size, returns the size of the stack
+    print(s.size())
     
     # pop, returns and removed the item at the top of the stack
     print(s.pop())
