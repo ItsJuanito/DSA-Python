@@ -1,6 +1,7 @@
 '''
 A tree whose elements have at most 2 children is called a binary tree. Since each element 
 in a binary tree can have only 2 children, we typically name them the left and right child.
+This odule contains a TreeNode class which has references to its right and left children.
 '''
 
 # import the stack and queue modules to use the classes
@@ -8,6 +9,7 @@ import sys
 sys.path.append('..')
 from Queue.Queue import Queue
 from Stack.Stack import Stack
+
 # Tree Node class that contains a data variable and references to the left and right children
 class TreeNode:
     # constructor method that sets left and right children as well as data
