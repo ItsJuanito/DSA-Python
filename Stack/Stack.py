@@ -18,6 +18,7 @@ class Stack:
     # this method returns the item at the top of the stack
     def peek(self):
         return self.stack[len(self.stack) - 1]
+    # this method returns the size of the stack
     def size(self):
         return len(self.stack)
     # this method returns the position of the data that is being searched
@@ -68,6 +69,7 @@ if __name__ == "__main__":
 Sample Output:
  - Flamingo
  - ['Dog', 'Bird', 'Lion', 'Bear', 'Flamingo']
+ - 5
  - Flamingo
  - False
  - Cow is not in the stack
