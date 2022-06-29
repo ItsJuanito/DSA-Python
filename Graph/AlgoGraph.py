@@ -65,7 +65,7 @@ print(getAdjList(g, 'A'))
 print("Has Path : " + str(hasPath(graph, 'A', 'E')))
 
 print("Depth first search: ")
-depthFirstSearch(graph, 'A')
+depthFirstSearch(g, 'A')
 
 print("\nBreadth first search: ")
 breadthFirstSearch(graph, 'A')
@@ -86,7 +86,7 @@ Sample Outputs:
  - A B C D E F 
  - 
  -
- -  
+  
 Graph Structure:
 {
     'A' : ['B', 'C'],

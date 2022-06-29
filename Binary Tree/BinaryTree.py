@@ -1,3 +1,13 @@
+'''
+A tree whose elements have at most 2 children is called a binary tree. Since each element 
+in a binary tree can have only 2 children, we typically name them the left and right child.
+'''
+
+# import the stack and queue modules to use the classes
+import sys
+sys.path.append('..')
+from Queue.Queue import Queue
+from Stack.Stack import Stack
 # Tree Node class that contains a data variable and references to the left and right children
 class TreeNode:
     # constructor method that sets left and right children as well as data
@@ -56,28 +66,30 @@ class TreeNode:
         if root == None:
             return []
         result = []
-        stack = [root]
-        while len(stack) > 0:
+        stack = Stack()
+        stack.push(root)
+        while stack.size() > 0:
             current = stack.pop()
             result.append(current.data)
             if current.right:
-                stack.append(current.right)
+                stack.push(current.right)
             if current.left:
-                stack.append(current.left)
+                stack.push(current.left)
         return result
     # this method returns a list of the tree using a breadth first search (by levels)
     def breadthFirstSearch(self, root):
         if root == None:
             return []
         result = []
-        queue = [root]
-        while len(queue) > 0:
-            current = queue.pop()
+        queue = Queue()
+        queue.enqueue(root)
+        while queue.size() > 0:
+            current = queue.dequeue()
             result.append(current.data)
             if current.left:
-                queue.insert(0, current.left)
+                queue.enqueue(current.left)
             if current.right:
-                queue.insert(0, current.right)
+                queue.enqueue(current.right)
         return result
 
 
