@@ -9,6 +9,17 @@ def getAdjList(graph, key):
         if k == key:
             return graph.adjList[k]
 
+def hasPath(graph, key, dst):
+    queue = Queue()
+    queue.enqueue(key)
+    while queue.size() > 0:
+        current = queue.dequeue()
+        if current == dst:
+            return True
+        for values in graph[current]:
+            queue.enqueue(values)
+    return False
+
 def depthFirstSearch(graph, key):
     stack = Stack()
     stack.push(key)
@@ -50,12 +61,33 @@ g.addEdge('C', 'E')
 g.addEdge('D', 'F')
 g.print()
 print(getAdjList(g, 'A'))
+
+print("Has Path : " + str(hasPath(graph, 'A', 'E')))
+
 print("Depth first search: ")
 depthFirstSearch(graph, 'A')
+
 print("\nBreadth first search: ")
 breadthFirstSearch(graph, 'A')
 
 '''
+Sample Outputs:
+ - A -> B C 
+ - B -> A D 
+ - C -> A E 
+ - D -> B F 
+ - E -> C 
+ - F -> D 
+ - ['B', 'C']
+ - Has Path: True
+ - Depth first search: 
+ - A C E B D F 
+ - Breadth first search: 
+ - A B C D E F 
+ - 
+ -
+ -  
+Graph Structure:
 {
     'A' : ['B', 'C'],
     'B' : ['D'],
@@ -64,4 +96,10 @@ breadthFirstSearch(graph, 'A')
     'E' : [],
     'F' : []
 }
+
+Graph Representation:
+    A -> B -> D -> F 
+     \ 
+      -> C -> E   
+
 '''
