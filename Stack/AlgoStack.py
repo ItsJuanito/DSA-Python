@@ -1,5 +1,6 @@
 from Stack import Stack
 
+# This function returns true or false whether the parentheses are symetrical or not
 def validParenthesis(string):
     stack = Stack()
     for s in string:
@@ -15,7 +16,7 @@ def validParenthesis(string):
                 return False
     return True
 
-
+# Test Stack methods
 if __name__ == "__main__":
     string = "({[]})"
     string2 = "(}"
@@ -23,3 +24,10 @@ if __name__ == "__main__":
     print(validParenthesis(string))
     print(validParenthesis(string2))
     print(validParenthesis(string3))
+
+'''
+Sample Output:
+ - True
+ - False
+ - True
+'''
