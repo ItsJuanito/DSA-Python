@@ -38,37 +38,38 @@ def breadthFirstSearch(graph, key):
         for values in graph[current]:
             queue.enqueue(values)
 
-graph = {
-    'A' : ['B', 'C'],
-    'B' : ['D'],
-    'C' : ['E'],
-    'D' : ['F'],
-    'E' : [],
-    'F' : []
-}
+if __name__ == "__main__":
+    graph = {
+        'A' : ['B', 'C'],
+        'B' : ['D'],
+        'C' : ['E'],
+        'D' : ['F'],
+        'E' : [],
+        'F' : []
+    }
 
-vertices = ['A', 'B', 'C', 'D', 'E', 'F']
+    vertices = ['A', 'B', 'C', 'D', 'E', 'F']
 
-g = Graph()
+    g = Graph()
 
-for v in vertices:
-    g.addVertex(v)
+    for v in vertices:
+        g.addVertex(v)
 
-g.addEdge('A', 'B')
-g.addEdge('A', 'C')
-g.addEdge('B', 'D')
-g.addEdge('C', 'E')
-g.addEdge('D', 'F')
-g.print()
-print(getAdjList(g, 'A'))
+    g.addEdge('A', 'B')
+    g.addEdge('A', 'C')
+    g.addEdge('B', 'D')
+    g.addEdge('C', 'E')
+    g.addEdge('D', 'F')
+    g.print()
+    print(getAdjList(g, 'A'))
 
-print("Has Path : " + str(hasPath(graph, 'A', 'E')))
+    print("Has Path : " + str(hasPath(graph, 'A', 'E')))
 
-print("Depth first search: ")
-depthFirstSearch(graph, 'A')
+    print("Depth first search: ")
+    depthFirstSearch(graph, 'A')
 
-print("\nBreadth first search: ")
-breadthFirstSearch(graph, 'A')
+    print("\nBreadth first search: ")
+    breadthFirstSearch(graph, 'A')
 
 '''
 Sample Outputs:
@@ -84,8 +85,6 @@ Sample Outputs:
  - A C E B D F 
  - Breadth first search: 
  - A B C D E F 
- - 
- -
   
 Graph Structure:
 {
