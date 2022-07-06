@@ -91,11 +91,58 @@ def max_sub_array_of_size_k(arr, k):
     # return max_sum
     return max_sum
 
+
+'''
+Smallest Subarray with Given Sum.
+
+(Medium)
+
+Problem Statement:
+Given an array of n size. Find the smallest subarray that is greater than or equal to the target.
+
+Example 1:
+Input: [2, 1, 5, 1, 3, 2], target=6 
+Output: 2
+Explanation: Subarray with smallest size is [1, 5] or [5, 1].
+
+Example 2:
+Input: [2, 3, 4, 1, 5], target=5 
+Output: 1
+Explanation: Subarray with smallest size is [5].
+'''
+
+def smallest_sum_sub_array(arr, target):
+    # initiate variables
+    window_start = 0
+    window_sum = 0
+    # large value
+    size = 100000
+    # loop through the array 
+    for window in range(len(arr)):
+        # add the current item to the sum
+        window_sum += arr[window]
+        # while the current sum is >= target
+        while window_sum >= target:
+            # get min size of the subarray
+            size = min(size, window - window_start + 1)
+            # subtract the first item to slide window
+            window_sum -= arr[window_start]
+            # increment window start
+            window_start += 1
+    # return the smallest size
+    return size
+
 arr = [2, 1, 5, 1, 3, 2]
 k = 3 
+target = 6
 print(str(max_sub_array_of_size_k(arr, k)))
 # Output: 9
 arr2 = [2, 3, 4, 1, 5]
 k2 = 2
+target2 = 5
 print(str(max_sub_array_of_size_k(arr2, k2)))
 # Output: 7
+print(smallest_sum_sub_array(arr, target))
+# Output: 2
+print(smallest_sum_sub_array(arr2, target2))
+# Output: 1
