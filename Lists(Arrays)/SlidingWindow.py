@@ -91,6 +91,14 @@ def max_sub_array_of_size_k(arr, k):
     # return max_sum
     return max_sum
 
+arr = [2, 1, 5, 1, 3, 2]
+k = 3 
+print(str(max_sub_array_of_size_k(arr, k)))
+# Output: 9
+arr2 = [2, 3, 4, 1, 5]
+k2 = 2
+print(str(max_sub_array_of_size_k(arr2, k2)))
+# Output: 7
 
 '''
 Smallest Subarray with Given Sum.
@@ -101,12 +109,12 @@ Problem Statement:
 Given an array of n size. Find the smallest subarray that is greater than or equal to the target.
 
 Example 1:
-Input: [2, 1, 5, 1, 3, 2], target=6 
+Input: [3, 1, 5, 1, 4, 7], target=6 
 Output: 2
 Explanation: Subarray with smallest size is [1, 5] or [5, 1].
 
 Example 2:
-Input: [2, 3, 4, 1, 5], target=5 
+Input: [2, 6, 1, 4, 5, 7], target=5 
 Output: 1
 Explanation: Subarray with smallest size is [5].
 '''
@@ -132,17 +140,11 @@ def smallest_sum_sub_array(arr, target):
     # return the smallest size
     return size
 
-arr = [2, 1, 5, 1, 3, 2]
-k = 3 
+nums = [3, 1, 5, 1, 4, 7]
 target = 6
-print(str(max_sub_array_of_size_k(arr, k)))
-# Output: 9
-arr2 = [2, 3, 4, 1, 5]
-k2 = 2
+nums2 = [2, 6, 1, 4, 5, 7]
 target2 = 5
-print(str(max_sub_array_of_size_k(arr2, k2)))
-# Output: 7
-print(smallest_sum_sub_array(arr, target))
+print(smallest_sum_sub_array(nums, target))
 # Output: 2
-print(smallest_sum_sub_array(arr2, target2))
+print(smallest_sum_sub_array(nums2, target2))
 # Output: 1
