@@ -85,18 +85,24 @@ def twoSum(nums, target):
         # if the sum is equal to the target then 
         if sum == target:
             return True
+        # else if the sum is less than the target, decrease left by 1
         elif sum < target:
             left += 1
+        # else if the sum is greater than the target, increase right by 1
         else:
             right -= 1
+    # return False if the target was never found
     return False
 
 nums = [2,7,11,15]
 target = 9
 print(twoSum(nums, target))
+# Output: True
 nums2 = [3, 2, 4]
 target2 = 6
 print(twoSum(nums2, target2))
+# Output: True
 nums3 = [1, 3]
 target3 = 6
 print(twoSum(nums3, target3))
+# Output: False
