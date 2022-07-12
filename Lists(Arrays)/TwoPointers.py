@@ -107,17 +107,44 @@ target3 = 6
 print(twoSum(nums3, target3))
 # Output: False
 
+
+'''
+Remove Duplicates
+
+(easy)
+
+Problem Statement 
+Given an array of sorted numbers, remove all duplicates from it. You should not use any extra space; 
+after removing the duplicates in-place return the new length of the array.
+
+Example 1:
+Input: [2, 3, 3, 3, 6, 9, 9]
+Output: 4
+Explanation: The first four elements after removing the duplicates will be [2, 3, 6, 9].
+
+Example 2:
+Input: [2, 2, 2, 11]
+Output: 2
+Explanation: The first two elements after removing the duplicates will be [2, 11].
+'''
+
 def remove_Duplicates(nums):
+    # initiate variables
     left = 0
     result = 0
+    # loop through the array
     for right in range(1, len(nums)):
+        # if the current number is the same as the previous number
         if nums[left] == nums[right]:
+            # increment result
             result += 1
+        # increment left
         left += 1
+    # return result
     return result
 
-print(remove_Duplicates([1, 2, 2, 2, 3, 4, 5, 5]))
-print(remove_Duplicates([2, 4, 4, 5, 6]))
+print(remove_Duplicates([2, 3, 3, 3, 6, 9, 9]))
+print(remove_Duplicates([2, 2, 2, 11]))
 
 
 
