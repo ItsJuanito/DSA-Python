@@ -106,3 +106,36 @@ nums3 = [1, 3]
 target3 = 6
 print(twoSum(nums3, target3))
 # Output: False
+
+def remove_Duplicates(nums):
+    left = 0
+    result = 0
+    for right in range(1, len(nums)):
+        if nums[left] == nums[right]:
+            result += 1
+        left += 1
+    return result
+
+print(remove_Duplicates([1, 2, 2, 2, 3, 4, 5, 5]))
+print(remove_Duplicates([2, 4, 4, 5, 6]))
+
+
+
+def find_subarrays(nums, target):
+    result = []
+    left = 0
+    for right in range(1, len(nums)):
+        if nums[left] < target:
+                result.append([nums[right]])
+        if nums[left] * nums[right] < target:
+            result.append([nums[left], nums[right]])
+        left += 1
+    return result
+
+print(find_subarrays([2, 5, 3, 10], 30))
+print(find_subarrays([8, 2, 6, 5], 50))
+
+
+# [2, 5, 3, 10]
+# [2], [5], [3], [10]
+# [2, 5], [5, 3]
