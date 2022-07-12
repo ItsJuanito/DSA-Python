@@ -107,7 +107,6 @@ target3 = 6
 print(twoSum(nums3, target3))
 # Output: False
 
-
 '''
 Remove Duplicates
 
@@ -147,7 +146,6 @@ print(remove_Duplicates([2, 3, 3, 3, 6, 9, 9]))
 # Output: 3
 print(remove_Duplicates([2, 2, 2, 11]))
 # Output: 2
-
 
 '''
 Subarray of numbers less than given product
@@ -190,9 +188,6 @@ def find_subarrays(nums, target):
     return result
 
 print(find_subarrays([2, 5, 3, 10], 30))
+# Output: [[5], [2, 5], [3], [5, 3], [10]]
 print(find_subarrays([8, 2, 6, 5], 50))
-
-
-# [2, 5, 3, 10]
-# [2], [5], [3], [10]
-# [2, 5], [5, 3]
+# Output: [[2], [8, 2], [6], [2, 6], [5], [6, 5]]
