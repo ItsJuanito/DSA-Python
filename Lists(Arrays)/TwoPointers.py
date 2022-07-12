@@ -171,14 +171,22 @@ Explanation: There are seven contiguous subarrays whose product is less than the
 '''
 
 def find_subarrays(nums, target):
+    # initiate variables
     result = []
     left = 0
+    # loop through the array
     for right in range(1, len(nums)):
+        # che if the current element is less than the product
         if nums[left] < target:
+            # append the current element to the result
                 result.append([nums[right]])
+        # check if the current element and next element are less than the product
         if nums[left] * nums[right] < target:
+            # append both of thise elements to the result
             result.append([nums[left], nums[right]])
+        # increment left
         left += 1
+    # return the result
     return result
 
 print(find_subarrays([2, 5, 3, 10], 30))
