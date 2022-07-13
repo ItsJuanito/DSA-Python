@@ -1,3 +1,22 @@
+'''
+Merge Intervals
+
+(medium)
+
+Problem Statement: Given a set of time intervals in any order, merge all overlapping intervals 
+into one and output the result which should have only mutually exclusive intervals.
+
+Example 1:
+Input: height = [[1, 3], [2, 4], [6, 8], [9, 10]]
+Output: [1, 4], [6, 8], [9, 10]
+Explanation: Given intervals: [1,3],[2,4],[6,8],[9,10], we have only two overlapping intervals 
+here,[1,3] and [2,4]. Therefore we will merge these two and return [1,4],[6,8], [9,10].
+
+Example 2:
+Input: intervals = [[6, 8], [1, 9], [2, 4], [4, 7]]
+Output: [1, 9]
+'''
+
 def mergeIntervals(intervals):
     # sort the list
     intervals.sort()
@@ -18,9 +37,9 @@ def mergeIntervals(intervals):
     # return the stack
     return stack
 
-intervals = [[6, 8], [1, 9], [2, 4], [4, 7]]
-print(mergeIntervals(intervals))
-# Output: [[1, 9]]
-intervals2 = [[1, 3], [2, 4], [6, 8], [9, 10]]
-print(mergeIntervals(intervals2))
+intervals1 = [[1, 3], [2, 4], [6, 8], [9, 10]]
+print(mergeIntervals(intervals1))
 # Output: [[1, 4], [6, 8], [9, 10]]
+intervals2 = [[6, 8], [1, 9], [2, 4], [4, 7]]
+print(mergeIntervals(intervals2))
+# Output: [[1, 9]]
