@@ -35,12 +35,29 @@ sixth.next = third
 
 '''
 Visual representation of the linked list:
-
    a  ->  b  ->  c  ->  d  ->  e
                  ^             |
                  |             v
                   <-    <-    <-
 '''
 
+this = Node('a')
+Is = Node('b')
+Not = Node('c')
+a = Node('d')
+cycle = Node('e')
+
+this.next = Is
+Is.next = Not
+Not.next = a
+a.next = cycle
+
+'''
+Visual representation of the linked list:
+   a  ->  b  ->  c  ->  d  ->  e
+'''
+
 print(findLoop(first))
 # Output: True
+print(findLoop(this))
+# Ouput: False
