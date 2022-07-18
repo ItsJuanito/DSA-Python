@@ -1,19 +1,5 @@
 from SinglyLinkedList import Node
 
-first = Node('a')
-second = Node('b')
-third = Node('c')
-fourth = Node('d')
-fifth = Node('e')
-sixth = Node('f')
-
-first.next = second
-second.next = third
-third.next = fourth
-fourth.next = fifth
-fifth.next = sixth
-sixth.next = third
-
 # this function uses the fast and slow approach to see if there is a loop in the linked list
 def findLoop(head):
     # set slow pointer to the head
@@ -32,4 +18,29 @@ def findLoop(head):
     # if there was no loop present, then return false
     return False
 
+# Sample linked list used for the fast and slow function
+first = Node('a')
+second = Node('b')
+third = Node('c')
+fourth = Node('d')
+fifth = Node('e')
+sixth = Node('f')
+
+first.next = second
+second.next = third
+third.next = fourth 
+fourth.next = fifth
+fifth.next = sixth
+sixth.next = third
+
+'''
+Visual representation of the linked list:
+
+   a  ->  b  ->  c  ->  d  ->  e
+                 ^             |
+                 |             v
+                  <-    <-    <-
+'''
+
 print(findLoop(first))
+# Output: True
