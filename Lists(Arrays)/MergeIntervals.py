@@ -70,8 +70,9 @@ Explanation: Since [4,5] and [3,6] overlap, a person cannot attend both of these
 
 '''
 
-intervals = [[1, 3], [2, 5], [7, 9]]
-intervalz = [[1, 3], [5, 6], [7, 9]]
+intervals = [[1,4], [2,5], [7,9]]
+intervalz = [[6,7], [2,4], [8,12]]
+intervales = [[4,5], [2,3], [3,6]]
 
 def can_attend_appointment(intervals):
     intervals.sort()
@@ -81,4 +82,8 @@ def can_attend_appointment(intervals):
     return True
 
 print(can_attend_appointment(intervals))
+# Output: False
 print(can_attend_appointment(intervalz))
+# Output: True
+print(can_attend_appointment(intervales))
+# Output: False
