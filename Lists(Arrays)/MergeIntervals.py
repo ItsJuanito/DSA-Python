@@ -43,3 +43,19 @@ print(mergeIntervals(intervals1))
 intervals2 = [[6, 8], [1, 9], [2, 4], [4, 7]]
 print(mergeIntervals(intervals2))
 # Output: [[1, 9]]
+
+
+
+
+intervals = [[1, 3], [2, 5], [7, 9]]
+intervalz = [[1, 3], [5, 6], [7, 9]]
+
+def can_attend_appointment(intervals):
+    intervals.sort()
+    for i in range(1, len(intervals)):
+        if intervals[i - 1][1] > intervals[i][0]:
+            return False
+    return True
+
+print(can_attend_appointment(intervals))
+print(can_attend_appointment(intervalz))
