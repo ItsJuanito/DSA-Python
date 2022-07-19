@@ -70,20 +70,24 @@ Explanation: Since [4,5] and [3,6] overlap, a person cannot attend both of these
 
 '''
 
-intervals = [[1,4], [2,5], [7,9]]
-intervalz = [[6,7], [2,4], [8,12]]
-intervales = [[4,5], [2,3], [3,6]]
-
 def can_attend_appointment(intervals):
+    # sort the list of intervals
     intervals.sort()
+    # loop through the list of intervals
     for i in range(1, len(intervals)):
+        # check if the previous interval is greater than the next one
         if intervals[i - 1][1] > intervals[i][0]:
+            # return false if so
             return False
+    # otherwise return true
     return True
 
+intervals = [[1,4], [2,5], [7,9]]
 print(can_attend_appointment(intervals))
 # Output: False
+intervalz = [[6,7], [2,4], [8,12]]
 print(can_attend_appointment(intervalz))
 # Output: True
+intervales = [[4,5], [2,3], [3,6]]
 print(can_attend_appointment(intervales))
 # Output: False
