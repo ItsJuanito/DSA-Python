@@ -9,5 +9,9 @@ def cyclicSort(nums):
             i += 1
     return nums
 
-print([2, 3, 1, 4, 5])
-print(cyclicSort([2, 3, 1, 4, 5]))
+nums = [3, 1, 5, 4, 2]
+print(cyclicSort(nums))
+nums2 = [2, 6, 4, 3, 1, 5]
+print(cyclicSort(nums2))
+nums3 = [1, 5, 6, 4, 3, 2]
+print(cyclicSort(nums3))
