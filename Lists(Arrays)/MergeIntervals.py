@@ -44,7 +44,6 @@ intervals2 = [[6, 8], [1, 9], [2, 4], [4, 7]]
 print(mergeIntervals(intervals2))
 # Output: [[1, 9]]
 
-
 '''
 Can Attend Appointment
 
@@ -67,7 +66,6 @@ Example 3:
 Appointments: [[4,5], [2,3], [3,6]]
 Output: false
 Explanation: Since [4,5] and [3,6] overlap, a person cannot attend both of these appointments.
-
 '''
 
 def can_attend_appointment(intervals):
