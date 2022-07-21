@@ -1,12 +1,14 @@
-
 '''
-Problem Statement:
-We are given an array containing ‘n’ objects. Each object, when created, was assigned a 
-unique number from 1 to ‘n’ based on their creation sequence. This means that the object 
-with sequence number ‘3’ was created just before the object with sequence number ‘4’. 
-Write a function to sort the objects in-place on their creation sequence number in O(n) 
-and without any extra space. For simplicity, let’s assume we are passed an integer array 
-containing only the sequence numbers, though each number is actually an object.
+Cyclic Sort
+
+(easy)
+
+Problem Statement: We are given an array containing ‘n’ objects. Each object, when created, 
+was assigned a unique number from 1 to ‘n’ based on their creation sequence. This means that 
+the object with sequence number ‘3’ was created just before the object with sequence number ‘4’. 
+Write a function to sort the objects in-place on their creation sequence number in O(n) and 
+without any extra space. For simplicity, let’s assume we are passed an integer array containing 
+only the sequence numbers, though each number is actually an object.
 
 Example 1:
 Input: [3, 1, 5, 4, 2]
@@ -25,13 +27,20 @@ Output: [1, 2, 3, 4, 5, 6]
 '''
 
 def cyclicSort(nums):
+    # initiate interator
     i = 0
+    # while i is less than the size of the array
     while i < len(nums):
+        # set j equal to the index we are looking for
         j = nums[i] - 1
+        # if i is not equal to that index
         if i != j:
+            # swap both indexes
             nums[i], nums[j] = nums[j], nums[i]
         else:
+            # otherwise increment i
             i += 1
+    # return the array once done
     return nums
 
 nums = [3, 1, 5, 4, 2]
