@@ -45,7 +45,32 @@ def cyclicSort(nums):
 
 nums = [3, 1, 5, 4, 2]
 print(cyclicSort(nums))
+# Output: [1, 2, 3, 4, 5]
 nums2 = [2, 6, 4, 3, 1, 5]
 print(cyclicSort(nums2))
+# Output: [1, 2 ,3, 4, 5, 6]
 nums3 = [1, 5, 6, 4, 3, 2]
 print(cyclicSort(nums3))
+# Output: [1, 2, 3, 4, 5 ,6]
+
+def find_all_duplicates(nums):
+    i = 0
+    while i < len(nums):
+        j = nums[i] - 1
+        if nums[i] != nums[j]:
+            nums[i], nums[j] = nums[j], nums[i]
+        else:
+            i += 1
+
+    duplicates = []
+    for i in range(len(nums)):
+        if nums[i] != i + 1:
+            duplicates.append(nums[i])
+    return duplicates
+
+nums = [3, 4, 4, 5, 5]
+print(find_all_duplicates(nums))
+
+nums2 = [5, 4, 7, 2, 3, 5, 3]
+print(find_all_duplicates(nums2))
+
