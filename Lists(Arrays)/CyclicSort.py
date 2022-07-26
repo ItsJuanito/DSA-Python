@@ -71,23 +71,33 @@ Output: [3, 5]
 '''
 
 def find_all_duplicates(nums):
+    # initiate iterator
     i = 0
+    # loop through the list while i is less than the length of the list
     while i < len(nums):
+        # set j equal to the the current element - 1
         j = nums[i] - 1
+        # if the current element is not equal to the element at index j
         if nums[i] != nums[j]:
+            # swap the two elements
             nums[i], nums[j] = nums[j], nums[i]
         else:
+            # otherwise just increment i by 1
             i += 1
-
+    # create a duplicates list
     duplicates = []
+    # loop through the list again
     for i in range(len(nums)):
+        # if the current element is not equal to the current index + 1
         if nums[i] != i + 1:
+            # add the element to the duplicates list
             duplicates.append(nums[i])
+    # return the duplicates list
     return duplicates
 
 nums = [3, 4, 4, 5, 5]
 print(find_all_duplicates(nums))
-
+# Output: [4, 5]
 nums2 = [5, 4, 7, 2, 3, 5, 3]
 print(find_all_duplicates(nums2))
-
+# Output: [3, 5]
