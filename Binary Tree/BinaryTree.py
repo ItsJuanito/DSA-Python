@@ -7,7 +7,6 @@ This odule contains a TreeNode class which has references to its right and left 
 # import the stack and queue modules to use the classes
 import sys
 sys.path.append('..')
-from Queue.Queue import Queue
 from Stack.Stack import Stack
 
 # Tree Node class that contains a data variable and references to the left and right children
@@ -78,22 +77,6 @@ class TreeNode:
             if current.left:
                 stack.push(current.left)
         return result
-    # this method returns a list of the tree using a breadth first search (by levels)
-    def breadthFirstSearch(self, root):
-        if root == None:
-            return []
-        result = []
-        queue = Queue()
-        queue.enqueue(root)
-        while queue.size() > 0:
-            current = queue.dequeue()
-            result.append(current.data)
-            if current.left:
-                queue.enqueue(current.left)
-            if current.right:
-                queue.enqueue(current.right)
-        return result
-
 
 # Test Binary Tree Node Methods
 if __name__ == "__main__":
@@ -109,8 +92,6 @@ if __name__ == "__main__":
     print("Post order: " + str(a.postOrderTraversal(a)))
 
     print(a.depthFirstSearch(a))
-    print(a.breadthFirstSearch(a))
-
 '''
 Sample Output:
  - 4 6 10 12 
@@ -118,7 +99,6 @@ Sample Output:
  - In order: [4, 6, 10, 12]
  - Post order: [4, 6, 12, 10]
  - [10, 4, 6, 12]
- - [10, 4, 12, 6]
 
  Tree Structure:
           10
