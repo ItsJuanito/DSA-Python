@@ -36,18 +36,30 @@ Tree Structure (b):
 '''
 
 def breathFirstSearch(root):
+    # if the root is none then return an empty list
     if root == None:
         return []
+    # create a results array
     result = []
+    # create a queue
     queue = Queue()
+    # add the root to the queue
     queue.enqueue(root)
+    # while the queue is not empty
     while queue.size() > 0:
+        # make the current node the peek
         current = queue.dequeue()
+        # add the data of the current node to the result
         result.append(current.data)
+        # if there is a left node
         if current.left:
+            # add the left node to the queue
             queue.enqueue(current.left)
+        # if there is a right node
         if current.right:
+            # add the right node to the queue
             queue.enqueue(current.right)
+    # return the result
     return result
 
 print(breathFirstSearch(a))
