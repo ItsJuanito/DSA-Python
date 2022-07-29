@@ -24,15 +24,15 @@ b.insert(5)
   None   6 None  None
 
 Tree Structure (b):
-              4
-          /      \
-         2       10
-        / \      / \
-      None None 8   None
-               /  \
-              5   None
-            /   \
-         None   None
+          4
+      /      \
+     2       10
+    / \      / \
+ None None 8   None
+           /  \
+          5   None
+        /   \
+     None   None
 '''
 
 def breathFirstSearch(root):
@@ -51,8 +51,9 @@ def breathFirstSearch(root):
     return result
 
 print(breathFirstSearch(a))
+# Output: [10, 4, 12, 6]
 print(breathFirstSearch(b))
-
+# Output: [4, 2, 10, 8, 5]
 
 def levelBFS(root):
     if root == None:
@@ -73,4 +74,6 @@ def levelBFS(root):
     return result
 
 print(levelBFS(a))
+# Output: [[10], [4, 12], [6]]
 print(levelBFS(b))
+# Output: [[4], [2, 10], [8], [5]]
