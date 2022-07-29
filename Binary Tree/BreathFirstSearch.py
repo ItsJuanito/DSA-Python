@@ -85,21 +85,37 @@ Output: [[4], [2, 10], [8], [5]]
 '''
 
 def levelBFS(root):
+    # if the root is none
     if root == None:
+        # return an empty list
         return []
+    # create an results array
     result = []
+    # create a queue
     queue = Queue()
+    # add the root to the queue
     queue.enqueue(root)
+    # while the queue is not empty
     while queue.size() > 0:
+        # create a level array
         level = []
+        # iterate through the size of the queue
         for _ in range(queue.size()):
+            # set the peek to the current value
             current = queue.dequeue()
+            # add the data of the current value to the level array
             level.append(current.data)
+            # if there is a left child
             if current.left:
+                # add the left child to the queue
                 queue.enqueue(current.left)
+            # if there is a right child
             if current.right:
+                # add the right child to the queue
                 queue.enqueue(current.right)
+        # add the level array to the result array
         result.append(level)
+    # return the result array
     return result
 
 print(levelBFS(a))
