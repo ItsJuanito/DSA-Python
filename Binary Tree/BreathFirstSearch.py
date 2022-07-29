@@ -55,6 +55,23 @@ print(breathFirstSearch(a))
 print(breathFirstSearch(b))
 # Output: [4, 2, 10, 8, 5]
 
+'''
+Binary Tree Level Order Traversal
+
+(medium)
+
+Problem Statement: Given a binary tree, populate an array to represent its level-by-level traversal. 
+You should populate the values of all nodes of each level from left to right in separate sub-arrays.
+
+Example 1:
+Input: [10, 4, 12, 6]
+Output: [[10], [4, 12], [6]]
+
+Example 2:
+Input: [4, 2, 10, 8, 5]
+Output: [[4], [2, 10], [8], [5]]
+'''
+
 def levelBFS(root):
     if root == None:
         return []
