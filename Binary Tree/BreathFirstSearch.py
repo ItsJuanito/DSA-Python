@@ -143,4 +143,5 @@ def find_level_averages(root):
         result.append(data_sum/length)
     return result
 
+print(find_level_averages(a))
 print(find_level_averages(b))
