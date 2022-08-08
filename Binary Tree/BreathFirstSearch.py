@@ -122,3 +122,25 @@ print(levelBFS(a))
 # Output: [[10], [4, 12], [6]]
 print(levelBFS(b))
 # Output: [[4], [2, 10], [8], [5]]
+
+
+def find_level_averages(root):
+    result = []
+    if root is None:
+        return result
+    queue = Queue()
+    queue.enqueue(root)
+    while queue.size() > 0:
+        data_sum = 0
+        length = queue.size()
+        for _ in range(length):
+            current = queue.dequeue()
+            data_sum += current.data
+            if current.left:
+                queue.enqueue(current.left)
+            if current.right:
+                queue.enqueue(current.right)
+        result.append(data_sum/length)
+    return result
+
+print(find_level_averages(b))
