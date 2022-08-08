@@ -125,23 +125,41 @@ print(levelBFS(b))
 
 
 def find_level_averages(root):
+    # initiate result list
     result = []
+    # if root is none then return an empty list
     if root is None:
         return result
+    # initiate queue
     queue = Queue()
+    # populate queue with the root
     queue.enqueue(root)
+    # while the queue is not empty
     while queue.size() > 0:
+        # initiate data_Sum variable
         data_sum = 0
+        # store the length of the queue
         length = queue.size()
+        # loop through the length of the queue
         for _ in range(length):
+            # set current equal to the peak
             current = queue.dequeue()
+            # add the current data to the data_Sum variable
             data_sum += current.data
+            # if there is a left child
             if current.left:
+                # add the left child to the queue
                 queue.enqueue(current.left)
+            # if there is a right child
             if current.right:
+                # add the right child to the queue
                 queue.enqueue(current.right)
+        # add the average of the level sum to the result list
         result.append(data_sum/length)
+    # return the result
     return result
 
 print(find_level_averages(a))
+# Output: [10.0, 8.0, 6.0]
 print(find_level_averages(b))
+# Output: [4.0, 6.0, 8.0, 5.0]
