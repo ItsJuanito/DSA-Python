@@ -4,11 +4,6 @@ in a binary tree can have only 2 children, we typically name them the left and r
 This odule contains a TreeNode class which has references to its right and left children.
 '''
 
-# import the stack and queue modules to use the classes
-import sys
-sys.path.append('..')
-from Stack.Stack import Stack
-
 # Tree Node class that contains a data variable and references to the left and right children
 class TreeNode:
     # constructor method that sets left and right children as well as data
@@ -62,21 +57,6 @@ class TreeNode:
         print(self.data, end=" ")
         if self.right:
             self.right.printTree()
-    # this method returns a list of the tree using a depth first search (by subtree)
-    def depthFirstSearch(self, root):
-        if root == None:
-            return []
-        result = []
-        stack = Stack()
-        stack.push(root)
-        while stack.size() > 0:
-            current = stack.pop()
-            result.append(current.data)
-            if current.right:
-                stack.push(current.right)
-            if current.left:
-                stack.push(current.left)
-        return result
 
 # Test Binary Tree Node Methods
 if __name__ == "__main__":
@@ -91,7 +71,6 @@ if __name__ == "__main__":
     print("In order: " + str(a.inOrderTraversal(a)))
     print("Post order: " + str(a.postOrderTraversal(a)))
 
-    print(a.depthFirstSearch(a))
 '''
 Sample Output:
  - 4 6 10 12 
