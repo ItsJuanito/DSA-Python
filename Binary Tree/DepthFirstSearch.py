@@ -4,19 +4,16 @@ from BinaryTree import TreeNode
 sys.path.append('..')
 from Stack.Stack import Stack
 
-a = TreeNode()
-a.insert(5)
+a = TreeNode(5)
 a.insert(2)
 a.insert(1)
 a.insert(8)
 a.insert(6)
 
-b = TreeNode()
-b.insert(7)
+b = TreeNode(7)
 b.insert(10)
 b.insert(9)
 b.insert(5)
-
 
 '''
 Tree Structre (a):
@@ -50,3 +47,7 @@ def depthFirstSearch(root):
             stack.push(current.left)
     return result
 
+print(depthFirstSearch(a))
+# Output: [5, 2, 1, 8, 6]
+print(depthFirstSearch(b))
+# Output: [7, 5, 10, 9]
