@@ -17,6 +17,23 @@ b.insert(10)
 b.insert(9)
 b.insert(5)
 
+
+'''
+Tree Structre (a):
+                5
+             /     \
+            2       8
+          /  \     /  \
+         1  None  6  None
+
+Tree Strucutre (b):
+                 7
+             /       \
+            5         10
+          /   \     /   \
+       None  None  9    None
+'''
+
 # this method returns a list of the tree using a depth first search (by subtree)
 def depthFirstSearch(root):
     if root == None:
