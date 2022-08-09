@@ -123,6 +123,19 @@ print(levelBFS(a))
 print(levelBFS(b))
 # Output: [[4], [2, 10], [8], [5]]
 
+'''
+Find Level Average
+
+(easy)
+
+Problem Statement: Given a binary tree, populate an array to represent the averages of all of its levels.
+
+Input: [10, 4, 12, 6]
+Output: [10.0, 8.0, 6.0]
+
+Input: [4, 2, 10, 8, 5]
+Output: [4.0, 6.0, 8.0, 5.0]
+'''
 
 def find_level_averages(root):
     # initiate result list
