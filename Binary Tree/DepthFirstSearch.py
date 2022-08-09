@@ -65,6 +65,23 @@ print(depthFirstSearch(a))
 print(depthFirstSearch(b))
 # Output: [7, 5, 10, 9]
 
+'''
+Find Path with Sum 'S'
+
+(easy)
+
+Problem Statement: Given a binary tree and a number ‘S’, find if the tree has a path from root-to-leaf 
+such that the sum of all the node values of that path equals ‘S’.
+
+Example 1:
+Input: [5, 2, 1, 8, 6], sum = 8
+Output: True
+
+Example 2:
+Input: [7, 5, 10, 9], sum = 23
+Output: False
+'''
+
 def hasPath(root, sum):
     # if the root is None then return False
     if root is None:
