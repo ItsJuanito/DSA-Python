@@ -113,6 +113,24 @@ print(hasPath(b, 12))
 print(hasPath(b, 23))
 # Output: False
 
+'''
+Count Paths for a Sum
+
+(medium)
+
+Problem Statement: Given a binary tree and a number ‘S’, find all paths in the tree such that the sum of all 
+the node values of each path equals ‘S’. Please note that the paths can start or end at any node but all paths 
+must follow direction from parent to child (top to bottom).
+
+Example 1:
+Input: [5, 2, 1, 8, 6], sum = 12
+Output: 0
+
+Example 2:
+Input: [5, 2, 7, 4], sum = 12
+Output: 2
+'''
+
 def count_paths(root, sum):
     # return the recursive call
     return find_current_count(root, sum, 0)
