@@ -114,15 +114,17 @@ print(hasPath(b, 23))
 # Output: False
 
 def count_paths(root, sum):
+    # return the recursive call
     return find_current_count(root, sum, 0)
 
 def find_current_count(root, sum, count):
+    # if there is no root then return 0
     if root is None:
         return 0
-
+    # if the current value is equal to the sum then incriment 1 to count
     if root.data == sum:
         count += 1
-    
+    # return the count + the recursive calls to get the final count
     return count + find_current_count(root.left, sum, count) + find_current_count(root.right, sum, count) + find_current_count(root.left, sum - root.data, count) + find_current_count(root.right, sum - root.data, count)
 
 print(count_paths(a, 12))
