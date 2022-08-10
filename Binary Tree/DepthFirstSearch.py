@@ -15,6 +15,11 @@ b.insert(10)
 b.insert(9)
 b.insert(5)
 
+c = TreeNode(5)
+c.insert(3)
+c.insert(7)
+c.insert(4)
+
 '''
 Tree Structre (a):
                 5
@@ -33,6 +38,13 @@ Tree Strucutre (b):
        None  None  9    None
                  /   \
                None  None
+
+Tree Structure (c):
+                5
+             /     \
+            2       7 
+          /   \   /   \
+        None   4 None None
 '''
 
 def depthFirstSearch(root):
@@ -66,7 +78,7 @@ print(depthFirstSearch(b))
 # Output: [7, 5, 10, 9]
 
 '''
-Find Path with Sum 'S'
+Binary Tree Path Sum
 
 (easy)
 
@@ -100,3 +112,20 @@ print(hasPath(b, 12))
 # Output: True
 print(hasPath(b, 23))
 # Output: False
+
+def count_paths(root, sum):
+    return find_current_count(root, sum, 0)
+
+def find_current_count(root, sum, count):
+    if root is None:
+        return 0
+
+    if root.data == sum:
+        count += 1
+    
+    return count + find_current_count(root.left, sum, count) + find_current_count(root.right, sum, count) + find_current_count(root.left, sum - root.data, count) + find_current_count(root.right, sum - root.data, count)
+
+print(count_paths(a, 12))
+# Output: 0
+print(count_paths(c, 12))
+# Output: 2
