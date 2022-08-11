@@ -19,5 +19,7 @@ def find_subsets(nums):
 
 nums = [1, 3]
 print(find_subsets(nums))
+# Output: [[], [1], [3], [1, 3]]
 nums2 = [1, 5, 3]
 print(find_subsets(nums2))
+# Output: [[], [1], [5], [1, 5], [3], [1, 3], [5, 3], [1, 5, 3]]
