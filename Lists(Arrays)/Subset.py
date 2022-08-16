@@ -41,22 +41,38 @@ print(find_subsets(nums2))
 
 
 def find_subsets_with_duplicate(nums):
+    # sort the nums list
     nums.sort()
+    # create a subset list
     subsets = []
+    # add an empty set
     subsets.append([])
+    # initiate start and end variables
     start, end = 0, 0
+    # loop through the nums list
     for i in range(len(nums)):
+        # reset start to 0
         start = 0
+        # if i is greater than 0 and the previous item is the same as the current item
         if i > 0 and nums[i] == nums[i - 1]:
+            # then make start equal to end
             start = end
+        # set end to the length of the subset list
         end = len(subsets)
+        # loop from start to end
         for j in range(start, end):
+            # copy the subset list into temp
             temp = subsets[j].copy()
+            # add the current item to temp
             temp.append(nums[i])
+            # append the temp set to the subset list
             subsets.append(temp)
+    # return the subset list
     return subsets
 
 nums = [1, 3, 3]
 print(find_subsets_with_duplicate(nums))
+# Output: [[], [1], [3], [1, 3], [3, 3], [1, 3, 3]]
 nums2 = [1, 5, 3, 3]
 print(find_subsets_with_duplicate(nums2))
+# Output: [[], [1], [3], [1, 3], [3, 3], [1, 3, 3], [5], [1, 5], [3, 5], [1, 3, 5], [3, 3, 5], [1, 3, 3, 5]]
