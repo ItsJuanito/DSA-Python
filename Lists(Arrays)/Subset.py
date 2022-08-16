@@ -1,4 +1,3 @@
-
 '''
 Find All Subsets of a Set
 
@@ -39,3 +38,25 @@ print(find_subsets(nums))
 nums2 = [1, 5, 3]
 print(find_subsets(nums2))
 # Output: [[], [1], [5], [1, 5], [3], [1, 3], [5, 3], [1, 5, 3]]
+
+
+def find_subsets_with_duplicate(nums):
+    nums.sort()
+    subsets = []
+    subsets.append([])
+    start, end = 0, 0
+    for i in range(len(nums)):
+        start = 0
+        if i > 0 and nums[i] == nums[i - 1]:
+            start = end
+        end = len(subsets)
+        for j in range(start, end):
+            temp = subsets[j].copy()
+            temp.append(nums[i])
+            subsets.append(temp)
+    return subsets
+
+nums = [1, 3, 3]
+print(find_subsets_with_duplicate(nums))
+nums2 = [1, 5, 3, 3]
+print(find_subsets_with_duplicate(nums2))
