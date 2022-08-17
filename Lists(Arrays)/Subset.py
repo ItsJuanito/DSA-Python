@@ -92,3 +92,47 @@ print(find_subsets_with_duplicate(nums))
 nums2 = [1, 5, 3, 3]
 print(find_subsets_with_duplicate(nums2))
 # Output: [[], [1], [3], [1, 3], [3, 3], [1, 3, 3], [5], [1, 5], [3, 5], [1, 3, 5], [3, 3, 5], [1, 3, 3, 5]]
+
+'''
+String Permutation by Changing Case
+
+(medium)
+
+Problem Statement: Given a string, find all of its permutations preserving the character 
+sequence but changing case.
+
+Example 1:
+Input: "ad52"
+Output: "ad52", "Ad52", "aD52", "AD52" 
+
+Example 2:
+Input: "ab7c"
+Output: "ab7c", "Ab7c", "aB7c", "AB7c", "ab7C", "Ab7C", "aB7C", "AB7C"
+'''
+
+def string_permutation(string):
+    # create a permutations list
+    permutations = []
+    # add the initial string to the list
+    permutations.append(string)
+    # loop through each character in the string
+    for i in range(len(string)):
+        # if the character is alphabeticle
+        if string[i].isalpha():
+            # loop through the permutations list
+            for j in range(len(permutations)):
+                # copy the list into a temp list
+                temp = list(permutations[j])
+                # swap case with the current string
+                temp[i] = temp[i].swapcase()
+                # then add that string to the permutations list
+                permutations.append(''.join(temp))
+    # return the list
+    return permutations
+
+string = "ad52"
+print(string_permutation(string))
+# Output: ['ad52', 'Ad52', 'aD52', 'AD52']
+string2 = "ab7c"
+print(string_permutation(string2))
+# Output: ['ab7c', 'Ab7c', 'aB7c', 'AB7c', 'ab7C', 'Ab7C', 'aB7C', 'AB7C']
