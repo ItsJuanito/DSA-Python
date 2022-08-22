@@ -60,3 +60,38 @@ print(find_max_in_bitonic_array(nums))
 nums2 = [3, 8, 3, 1]
 print(find_max_in_bitonic_array(nums2))
 # Output: 8
+
+def binarySearch(arr, target):
+    if arr[0] == arr[-1]    :
+        return 0
+        
+    if arr[0] < arr[-1]:
+        start = 0
+        end = len(arr) - 1
+        
+        while start <= end:
+            mid = (start + end) // 2
+            if arr[mid] < target:
+                start = mid + 1
+            elif arr[mid] > target:
+                end = mid - 1
+            else:
+                return mid
+    if arr[0] > arr[-1]:
+        start = 0
+        end = len(arr) - 1
+        
+        while start <= end:
+            mid = (start - end) // 2
+            if arr[mid] > target:
+                start = mid + 1
+            elif arr[mid] < target:
+                end = mid - 1
+            else:
+                return mid
+    return -1
+
+nums = [4, 6, 10]
+target = 10
+print(binarySearch(nums, target))
+    
