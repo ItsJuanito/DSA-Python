@@ -57,3 +57,6 @@ def find_max_in_bitonic_array(nums):
 nums = [1, 3, 8, 12, 4, 2]
 print(find_max_in_bitonic_array(nums))
 # Output: 12
+nums2 = [3, 8, 3, 1]
+print(find_max_in_bitonic_array(nums2))
+# Output: 8
