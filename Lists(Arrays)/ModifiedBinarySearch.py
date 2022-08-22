@@ -62,33 +62,51 @@ print(find_max_in_bitonic_array(nums2))
 # Output: 8
 
 def binarySearch(arr, target):
-    if arr[0] == arr[-1]    :
+    # check to see if the first element is the only element
+    if arr[0] == arr[-1]:
         return 0
-        
+    # if the array is in ascending order
     if arr[0] < arr[-1]:
+        # set start to the first index
         start = 0
+        # set end to the last index
         end = len(arr) - 1
-        
+        # while start is less than or equal to end
+        while start <= end:
+            # mid becomes the current index
+            mid = (start + end) // 2
+            # if the current index is smaller than the target
+            if arr[mid] < target:
+                # set start to mid + 1
+                start = mid + 1
+            # else if the current index is bigger than the target
+            elif arr[mid] > target:
+                # set end to mid - 1
+                end = mid - 1
+            else:
+                # otherwise return mid
+                return mid
+    # if the array is in descending order
+    if arr[0] > arr[-1]:
+        # set start to the first index
+        start = 0
+        # set end to the last index
+        end = len(arr) - 1
+        # while start is less than or equal to end
         while start <= end:
             mid = (start + end) // 2
-            if arr[mid] < target:
-                start = mid + 1
-            elif arr[mid] > target:
-                end = mid - 1
-            else:
-                return mid
-    if arr[0] > arr[-1]:
-        start = 0
-        end = len(arr) - 1
-        
-        while start <= end:
-            mid = (start - end) // 2
+            # if the current index is bigger than the target
             if arr[mid] > target:
+                # set start to mid + 1
                 start = mid + 1
+            # else if the current index is smaller than the target
             elif arr[mid] < target:
+                # set end to mid - 1
                 end = mid - 1
             else:
+                # otherwise return mid
                 return mid
+    # return -1 if there is no output to produce
     return -1
 
 nums = [4, 6, 10]
