@@ -141,4 +141,8 @@ nums = [4, 6, 10]
 target = 10
 print(binarySearch(nums, target))
 # Output: 2
+nums2 = [1, 2, 3, 4, 5, 6, 7]
+target2 = 5
+print(binarySearch(nums2, target2))
+# Ouput: 4
     
