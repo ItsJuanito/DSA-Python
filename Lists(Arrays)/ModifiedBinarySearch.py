@@ -212,7 +212,8 @@ def binary_search(arr, target, flag):
 arr = [4, 6, 6, 6, 9]
 target = 6
 print(find_range(arr, target))
-
+# Output: [1, 3]
 arr2 = [1, 3, 8, 10, 15]
 target2 = 10
 print(find_range(arr2, target2))
+# Output: [3, 3]
