@@ -145,32 +145,47 @@ nums2 = [1, 2, 3, 4, 5, 6, 7]
 target2 = 5
 print(binarySearch(nums2, target2))
 # Ouput: 4
+
     
 
 def find_range(arr, target):
+    # initiate the result list
     result = [-1, -1]
-
+    # call helper function that returns an index value
     result[0] = binary_search(arr, target, False)
+    # if the first index is populated
     if result[0] != -1:
+        # call the helper function again that returns another index value
         result[1] = binary_search(arr, target, True)
+    # return the result
     return result
 
 def binary_search(arr, target, flag):
+    # initiate start and end variables
     start, end = 0, len(arr) - 1
-
+    # while start is less than or equal to end
     while start <= end:
+        # calculate the current index for binary search
         mid = (start + end) // 2
+        # if the current value is less than the target value
         if arr[mid] < target:
+            # set start to the mid + 1
             start = mid + 1
+        # else if the current value is bigger than the target value
         elif arr[mid] > target:
+            # set end to mid - 1
             end = mid - 1
+        # otherwise set the target index to the current index
         else:
             target_index = mid
+            # if we have the max
             if flag:
+                # set start to mid + 1
                 start = mid + 1
+            # otherwise set end to mid - 1
             else:
                 end = mid - 1
-        
+    # return the current index
     return target_index 
 
 arr = [4, 6, 6, 6, 9]
