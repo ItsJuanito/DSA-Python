@@ -17,6 +17,13 @@ class Graph:
                     self.adjList.get(keys).remove(v)
         if v in self.adjList:
             self.adjList.pop(v)
+    
+    def getNeighbors(self, k):
+        for key, values in self.adjList.items():
+            if key == k and values:
+                return list(values)
+        else:
+            return 'There are no neighbors'
 
     def print(self):
         string = ""
@@ -39,3 +46,5 @@ if __name__ == "__main__":
     g.deleteVertex('D')
     print("After removing 'D': ")
     g.print()
+    neighbors = g.getNeighbors('A')
+    print(neighbors)
