@@ -98,7 +98,7 @@ def hasPath(root, sum):
     # if the root is None then return False
     if root is None:
         return False
-    # if the root is eaual to the sum and the root has no children then return True
+    # if the root is equal to the sum and the root has no children then return True
     if root.data == sum and root.left is None and root.right is None:
         return True
     # return the recursive call with each child left or right with the sum subtracted by the data
