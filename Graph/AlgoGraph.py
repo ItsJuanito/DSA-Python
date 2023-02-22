@@ -4,11 +4,6 @@ sys.path.append('..')
 from Queue.Queue import Queue
 from Stack.Stack import Stack
 
-def getAdjList(graph, key):
-    for k in graph.adjList:
-        if k == key:
-            return graph.adjList[k]
-
 def hasPath(graph, key, dst):
     queue = Queue()
     queue.enqueue(key)
@@ -61,7 +56,7 @@ if __name__ == "__main__":
     g.addEdge('C', 'E')
     g.addEdge('D', 'F')
     g.print()
-    print(getAdjList(g, 'A'))
+    print(g.getNeighbors('A'))
 
     print("Has Path : " + str(hasPath(graph, 'A', 'E')))
 
