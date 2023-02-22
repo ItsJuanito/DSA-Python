@@ -75,4 +75,9 @@ if __name__ == "__main__":
     grid = [[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]
     # Output: 16
     print(islandPerimeter(grid))
-
+    grid = [[1]]
+    # Output: 4
+    print(islandPerimeter(grid))
+    grid = [[1,0]]
+    # Output: 4
+    print(islandPerimeter(grid))
