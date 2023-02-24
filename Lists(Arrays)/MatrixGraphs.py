@@ -81,3 +81,7 @@ if __name__ == "__main__":
     grid = [[1,0]]
     # Output: 4
     print(islandPerimeter(grid))
+
+'''
+link to another matrix problem: https://leetcode.com/problems/toeplitz-matrix/
+'''

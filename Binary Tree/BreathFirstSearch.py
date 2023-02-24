@@ -178,3 +178,7 @@ print(find_level_averages(a))
 # Output: [10.0, 8.0, 6.0]
 print(find_level_averages(b))
 # Output: [4.0, 6.0, 8.0, 5.0]
+
+'''
+link to another bfs problem: https://leetcode.com/problems/deepest-leaves-sum/
+'''
