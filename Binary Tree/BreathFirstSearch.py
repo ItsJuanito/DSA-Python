@@ -180,5 +180,40 @@ print(find_level_averages(b))
 # Output: [4.0, 6.0, 8.0, 5.0]
 
 '''
-link to another bfs problem: https://leetcode.com/problems/deepest-leaves-sum/
+1302. Deepest Leaves Sum
+
+(medium)
+
+Problem Statement: Given the root of a binary tree, return the sum of values of its deepest leaves.
+
+Example 1:
+Input: root = [1,2,3,4,5,null,6,7,null,null,null,null,8]
+Output: 15
+
+Example 2:
+Input: root = [6,7,8,2,7,1,3,9,null,1,4,null,null,null,5]
+Output: 19
 '''
+
+def deepestLeavesSum(root):
+    if not root:
+        return 0
+    queue = Queue()
+    queue.enqueue(root)
+    depth = dict()
+    d = 1
+    while queue.size() > 0:
+        size = queue.size()
+        depth[d] = []
+        for _ in range(size):
+            current = queue.dequeue()
+            depth[d].append(current.data)
+            if current.left:
+                queue.enqueue(current.left)
+            if current.right:
+                queue.enqueue(current.right)
+        d += 1
+    max_depth = len(depth)
+    return sum(depth[max_depth])
+print(deepestLeavesSum(a))
+print(deepestLeavesSum(b))
