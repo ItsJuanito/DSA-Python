@@ -187,33 +187,50 @@ print(find_level_averages(b))
 Problem Statement: Given the root of a binary tree, return the sum of values of its deepest leaves.
 
 Example 1:
-Input: root = [1,2,3,4,5,null,6,7,null,null,null,null,8]
-Output: 15
+Input: root = [10, 4, 12, 6]
+Output: 6
 
 Example 2:
-Input: root = [6,7,8,2,7,1,3,9,null,1,4,null,null,null,5]
-Output: 19
+Input: root = [4, 2, 10, 8, 5]
+Output: 5
 '''
 
 def deepestLeavesSum(root):
+    # if there is no root then return 0
     if not root:
         return 0
+    # initiate queue and populate it with the root
     queue = Queue()
     queue.enqueue(root)
+    # create a dictionary to hold the values of each level
     depth = dict()
     d = 1
+    # while the queue is not empty
     while queue.size() > 0:
+        # store the queue size
         size = queue.size()
+        # set the level
         depth[d] = []
+        # loop until the you reach the given size
         for _ in range(size):
+            # remove node from the queue
             current = queue.dequeue()
+            # add that element to the corresponding leve
             depth[d].append(current.data)
+            # if left node then add it to the queue
             if current.left:
                 queue.enqueue(current.left)
+            # if right node then add it to the queue
             if current.right:
                 queue.enqueue(current.right)
         d += 1
+        #  increase level size
+    # get the last element
     max_depth = len(depth)
+    # return the sum of that last element's values
     return sum(depth[max_depth])
+
 print(deepestLeavesSum(a))
+# Output: 6
 print(deepestLeavesSum(b))
+# Output: 5
