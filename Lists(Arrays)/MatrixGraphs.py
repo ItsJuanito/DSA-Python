@@ -71,16 +71,15 @@ def islandPerimeter(grid):
                 perimeter += checkNeighbors(grid, n, m, i, j)
     return perimeter
 
-if __name__ == "__main__":
-    grid = [[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]
-    # Output: 16
-    print(islandPerimeter(grid))
-    grid = [[1]]
-    # Output: 4
-    print(islandPerimeter(grid))
-    grid = [[1,0]]
-    # Output: 4
-    print(islandPerimeter(grid))
+grid = [[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]
+# Output: 16
+print(islandPerimeter(grid))
+grid = [[1]]
+# Output: 4
+print(islandPerimeter(grid))
+grid = [[1,0]]
+# Output: 4
+print(islandPerimeter(grid))
 
 '''
 link to another matrix problem: https://leetcode.com/problems/toeplitz-matrix/
@@ -110,3 +109,33 @@ Output: false
 Explanation:
 The diagonal "[1, 2]" has different elements.
 '''
+
+def isToeplitzMatrix(matrix):
+    n = len(matrix)
+    m = len(matrix[0])
+    for i in range(n):
+        row = i
+        col = 0
+        init = matrix[row][col]
+        while row < n and col < m:
+            if matrix[row][col] != init:
+                return False
+            row += 1
+            col += 1
+    for i in range(m):
+        row = 0
+        col = i
+        init = matrix[row][col]
+        while row < n and col < m:
+            if matrix[row][col] != init:
+                return False
+            row += 1
+            col += 1
+    return True
+
+matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
+print(isToeplitzMatrix(matrix))
+# Output: False
+matrix = [[1,2],[2,2]]
+print(isToeplitzMatrix(matrix))
+# Output: True
