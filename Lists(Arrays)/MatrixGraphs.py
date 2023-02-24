@@ -82,10 +82,6 @@ grid = [[1,0]]
 print(islandPerimeter(grid))
 
 '''
-link to another matrix problem: https://leetcode.com/problems/toeplitz-matrix/
-'''
-
-'''
 766. Toeplitz Matrix
 
 (easy)
@@ -93,6 +89,10 @@ link to another matrix problem: https://leetcode.com/problems/toeplitz-matrix/
 Problem Statement: Given an m x n matrix, return true if the matrix is Toeplitz. Otherwise, return false.
 
 A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same elements.
+
+[1][2][3][4]
+[5][1][2][3]
+[6][5][1][2]
 
 Example 1:
 Input: matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
@@ -111,24 +111,39 @@ The diagonal "[1, 2]" has different elements.
 '''
 
 def isToeplitzMatrix(matrix):
+    # store m and x sizes
     n = len(matrix)
     m = len(matrix[0])
+    # loop through the bottom half of the matrix
     for i in range(n):
+        # set row to i
         row = i
+        # set column to 0
         col = 0
+        # set first value to the initial value
         init = matrix[row][col]
+        # loop through the matrix diagnally
         while row < n and col < m:
+            # if the current number does not match the initial value then return false
             if matrix[row][col] != init:
                 return False
+            # update diagnal coordinates
             row += 1
             col += 1
+    # loop through the top half of the matrix
     for i in range(m):
+        # set row to 0 now
         row = 0
+        # set col to i
         col = i
+        # store the initial value
         init = matrix[row][col]
+        # loop through the matrix diagnally
         while row < n and col < m:
+            # if the current number does not match the initial value then return false
             if matrix[row][col] != init:
                 return False
+            # update diagnal coordinates
             row += 1
             col += 1
     return True
