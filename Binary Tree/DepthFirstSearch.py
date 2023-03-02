@@ -168,17 +168,25 @@ Output: ['7->5', '7->10->9']
 '''
 
 def binaryTreePaths(root):
+    # create a list to store each path
     result = []
+    # create a dfs function that passes the root node and a string
     def dfs(root, string=""):
+        # if there is no root then return
         if not root:
             return
+        # if there is a node then add the value to the string
         string += str(root.data)
+        # if the node is a leaf then add that path to result
         if (not root.left) and (not root.right):
             result.append(string)
+        # otherwise append an arrow to the string
         else:
             string += "->"
+        # check for the left and right child
         dfs(root.left, string)
         dfs(root.right, string)
+    # call the function
     dfs(root)
     return result
 
