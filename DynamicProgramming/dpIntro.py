@@ -133,16 +133,24 @@ Output: 12
 '''
 
 def minPathSum(grid):
+    # add cache to speed up previous moves
     @cache
+    # create s dp function that passes i and j coordinates
     def dp(i, j):
+        # if we have reached the bottom right corner(the end) then return the value
         if i == len(grid) - 1 and j == len(grid[0]) - 1:
             return grid[i][j]
+        # create a result list to store the sums
         result = []
+        # if the bottom move is valid then add the value to result and the other posible moves
         if i + 1 < len(grid):
             result.append(grid[i][j] + dp(i + 1, j))
+        # if the right move is valid then add the value to result and the other posible moves
         if j + 1 < len(grid[0]):
             result.append(grid[i][j] + dp(i, j + 1))
+        # lastly return the smallest sum value
         return min(result)
+    # return the function call starting at 0, 0 (top, left)
     return dp(0, 0)
 
 grid = [[1,3,1],[1,5,1],[4,2,1]]
