@@ -216,23 +216,32 @@ Output: "fh"
 '''
 
 def smallestFromLeaf(root):
+    # store the lowercase letters and their corresponding numbers to the dictionary
     s = string.ascii_lowercase
     letters = dict()
     for idx, char in enumerate(s):
         letters[idx] = char
+    # create a result list to store all of the strings
     result = []
+    # create a dfs funciton that passes the root and string
     def dfs(root, string=""):
+        # if there is no node then return
         if not root:
             return
+        # otherwise append the character to the string given its value
         string += letters[root.data]
+        # if the node is a leaf then append the string in reverse
         if (not root.left) and (not root.right):
             result.append(string[::-1])
             return
+        # traverse throuh left and right children
         dfs(root.left, string)
         dfs(root.right, string)
+    # call the dfs function
     dfs(root)
-    result = sorted(result)
-    return result[0]
+    # get the string with the smallest lexicographical value and return it
+    ans = min(result)
+    return ans
 
 print(smallestFromLeaf(a))
 # Output: 'bcf'
