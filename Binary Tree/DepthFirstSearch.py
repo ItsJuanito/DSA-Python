@@ -1,4 +1,5 @@
 import sys
+import string
 from BinaryTree import TreeNode
 
 sys.path.append('..')
@@ -149,3 +150,83 @@ print(count_paths(a, 12))
 # Output: 0
 print(count_paths(c, 12))
 # Output: 2
+
+'''
+257. Binary Tree Paths
+
+(easy)
+
+Given the root of a binary tree, return all root-to-leaf paths in any order.
+
+Example 1:
+Input: root = [5, 2, 1, 8, 6]
+Output: ['5->2->1', '5->8->6']
+
+Example 2:
+Input: root = [7, 5, 10, 9]
+Output: ['7->5', '7->10->9']
+'''
+
+def binaryTreePaths(root):
+    result = []
+    def dfs(root, string=""):
+        if not root:
+            return
+        string += str(root.data)
+        if (not root.left) and (not root.right):
+            result.append(string)
+        else:
+            string += "->"
+        dfs(root.left, string)
+        dfs(root.right, string)
+    dfs(root)
+    return result
+
+print(binaryTreePaths(a))
+# Output: ['5->2->1', '5->8->6']
+print(binaryTreePaths(b))
+# Output: ['7->5', '7->10->9']
+
+
+'''
+988. Smallest String Starting From Leaf
+
+(medium)
+
+You are given the root of a binary tree where each node has a value in the range [0, 25] representing 
+the letters 'a' to 'z'.
+
+Return the lexicographically smallest string that starts at a leaf of this tree and ends at the root.
+
+Example 1:
+Input: root = [5, 2, 1, 8, 6]
+Output: "bcf"
+
+Example 2:
+Input: root = [7, 5, 10, 9]
+Output: "fh"
+'''
+
+def smallestFromLeaf(root):
+    s = string.ascii_lowercase
+    letters = dict()
+    for idx, char in enumerate(s):
+        letters[idx] = char
+    result = []
+    def dfs(root, string=""):
+        if not root:
+            return
+        string += letters[root.data]
+        if (not root.left) and (not root.right):
+            result.append(string[::-1])
+            return
+        dfs(root.left, string)
+        dfs(root.right, string)
+    dfs(root)
+    result = sorted(result)
+    return result[0]
+
+print(smallestFromLeaf(a))
+# Output: 'bcf'
+print(smallestFromLeaf(b))
+# Output: 'fh'

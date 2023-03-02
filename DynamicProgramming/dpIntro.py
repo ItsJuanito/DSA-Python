@@ -111,3 +111,43 @@ print(uniquePathsWithObstacles(obstacleGrid))
 obstacleGrid = [[0,1],[0,0]]
 print(uniquePathsWithObstacles(obstacleGrid))
 # Output: 1
+
+'''
+64. Minimum Path Sum
+
+(medium)
+
+Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right, 
+which minimizes the sum of all numbers along its path.
+
+Note: You can only move either down or right at any point in time.
+
+Example 1:
+Input: grid = [[1,3,1],[1,5,1],[4,2,1]]
+Output: 7
+Explanation: Because the path 1 → 3 → 1 → 1 → 1 minimizes the sum.
+
+Example 2:
+Input: grid = [[1,2,3],[4,5,6]]
+Output: 12
+'''
+
+def minPathSum(grid):
+    @cache
+    def dp(i, j):
+        if i == len(grid) - 1 and j == len(grid[0]) - 1:
+            return grid[i][j]
+        result = []
+        if i + 1 < len(grid):
+            result.append(grid[i][j] + dp(i + 1, j))
+        if j + 1 < len(grid[0]):
+            result.append(grid[i][j] + dp(i, j + 1))
+        return min(result)
+    return dp(0, 0)
+
+grid = [[1,3,1],[1,5,1],[4,2,1]]
+print(minPathSum(grid))
+# Output: 7 
+grid = [[1,2,3],[4,5,6]]
+print(minPathSum(grid))
+# Output: 12
