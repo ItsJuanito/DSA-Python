@@ -29,18 +29,28 @@ Output: 2
 '''
 
 def integerReplacement(n):
+    # create a result list to store all the number of operations
     result = []
+    # add cache to store previous iterations
     @cache
+    # create a dp function that passes the number and its operations
     def dp(num, turns=0):
+        # if the number is one then we have reached the end
         if num == 1:
+            # add the number of operations to the result array
             result.append(turns)
             return
+        # if the number is even then call dp and divide the num buy 2
         if num % 2 == 0:
             dp(num//2, turns + 1)
+        # otherwise call dp and go through two different paths where the number
+        # is even but greater by one and another that is less than one
         else:
             dp(num + 1, turns + 1)
             dp(num - 1, turns + 1)
+    # call the dp function
     dp(n)
+    # return the minimum operation in result
     return min(result)
 
 print(integerReplacement(8))
