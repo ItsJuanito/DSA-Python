@@ -201,30 +201,41 @@ Output: [0,0,0,0]
 Explanation: No matter which instruction the robot begins execution from, it would move off the grid.
 '''
 
+# create a dictionary that stores all possible moves
 moves = {
     'U' : [-1, 0], 
     'R' : [0, 1], 
     'D' : [1, 0], 
     'L' : [0, -1]
     }
+# create an isValid function to check if the your location is within the bounds of n
 def isValid(curr, next, n):
     x = curr[0] + next[0]
     y = curr[1] + next[1]
     return x < n and y < n and x >= 0 and y >= 0
 
 def executeInstructions(n, startPos, s):
+    # store count of valid moves
     result = []
+    # loop through each move in s
     for i in range(len(s)):
+        # create a counter variable
         count = 0
+        # set initial position to the current position
         curr_pos = startPos
+        # loop through the remaining valid moves
         for j in range(i, len(s)):
+            # if the move is valid then update count, and current position
             if isValid(curr_pos, moves[s[j]], n):
                 new_pos = moves[s[j]]
                 curr_pos = [(curr_pos[0] + new_pos[0]), (curr_pos[1] + new_pos[1])]
                 count += 1
             else:
+                # if the move isn't valid then break and move to the next move
                 break
+        # add count to result
         result.append(count)
+    # return the result list
     return result
 
 n = 3
