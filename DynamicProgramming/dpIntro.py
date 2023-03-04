@@ -1,6 +1,5 @@
 from functools import cache
 
-
 '''
 397. Integer Replacement
 
@@ -219,4 +218,54 @@ print(minPathSum(grid))
 # Output: 7 
 grid = [[1,2,3],[4,5,6]]
 print(minPathSum(grid))
+# Output: 12
+
+'''
+576. Out of Boundary Paths
+
+(medium)
+
+There is an m x n grid with a ball. The ball is initially at the position [startRow, startColumn]. 
+You are allowed to move the ball to one of the four adjacent cells in the grid (possibly out of the 
+grid crossing the grid boundary). You can apply at most maxMove moves to the ball.
+
+Given the five integers m, n, maxMove, startRow, startColumn, return the number of paths to move the 
+ball out of the grid boundary. Since the answer can be very large, return it modulo 109 + 7.
+
+Example 1:
+Input: m = 2, n = 2, maxMove = 2, startRow = 0, startColumn = 0
+Output: 6
+
+Example 2:
+Input: m = 1, n = 3, maxMove = 3, startRow = 0, startColumn = 1
+Output: 12
+'''
+
+def findPaths(m, n, maxMove, startRow, startColumn):
+    @cache
+    def dp(i, j, moves=maxMove):
+        if moves < 0:
+            return 0
+        if not (0 <= i and i < m) or not (0 <= j and j < n):
+            return 1
+        a = dp(i + 1, j, moves - 1)
+        b = dp(i, j + 1, moves - 1)
+        c = dp(i - 1, j, moves - 1)
+        d = dp(i, j - 1, moves - 1)
+        return a + b + c + d
+    return dp(startRow, startColumn) % ((10**9) + 7)
+
+m = 2
+n = 2
+maxMove = 2
+startRow = 0
+startColumn = 0
+print(findPaths(m, n, maxMove, startRow, startColumn))
+# Output: 6
+m = 1
+n = 3
+maxMove = 3
+startRow = 0
+startColumn = 1
+print(findPaths(m, n, maxMove, startRow, startColumn))
 # Output: 12
