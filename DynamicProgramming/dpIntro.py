@@ -242,17 +242,24 @@ Output: 12
 '''
 
 def findPaths(m, n, maxMove, startRow, startColumn):
+    # add cache to reuse previous outputs
     @cache
+    # create a dp method that passes i, j and the number of moves
     def dp(i, j, moves=maxMove):
+        # if we run out of moves then return 0
         if moves < 0:
             return 0
+        # if the current position is not in bounds then return 1
         if not (0 <= i and i < m) or not (0 <= j and j < n):
             return 1
+        # calculate down, right, up, and down moves
         a = dp(i + 1, j, moves - 1)
         b = dp(i, j + 1, moves - 1)
         c = dp(i - 1, j, moves - 1)
         d = dp(i, j - 1, moves - 1)
+        # add all of the results together
         return a + b + c + d
+    # return the function and modular 10^9 + 7
     return dp(startRow, startColumn) % ((10**9) + 7)
 
 m = 2
