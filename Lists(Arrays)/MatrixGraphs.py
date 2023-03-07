@@ -1,3 +1,4 @@
+import copy
 '''
 463. Island Perimeter
 
@@ -253,3 +254,50 @@ startPos = [0,0]
 s = "LRUD"
 print(executeInstructions(n, startPos, s))
 # Output: [0,0,0,0]
+
+'''
+73. Set Matrix Zeroes
+
+(medium)
+
+Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
+
+You must do it in place.
+
+Example 1:
+Input: matrix = [[1,1,1],[1,0,1],[1,1,1]]
+Output: [[1,0,1],[0,0,0],[1,0,1]]
+
+Example 2:
+Input: matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+Output: [[0,0,0,0],[0,4,5,0],[0,3,1,0]]
+'''
+
+def transpose(i, j, grid):
+    for x in range(len(grid)):
+        flag = False
+        if x == i:
+            flag = True
+        for y in range(len(grid[x])):
+            if flag:
+                grid[x][y] = 0
+            if y == j:
+                grid[x][y] = 0
+
+def setZeroes(matrix):
+    """
+    Do not return anything, modify matrix in-place instead.
+    """
+    m = len(matrix)
+    n = len(matrix[0])
+    grid = copy.deepcopy(matrix)
+    for i in range(m):
+        for j in range(n):
+            if grid[i][j] == 0:
+                transpose(i, j, matrix)
+    return matrix
+
+matrix = [[1,1,1],[1,0,1],[1,1,1]]
+print(setZeroes(matrix))
+matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+print(setZeroes(matrix))
