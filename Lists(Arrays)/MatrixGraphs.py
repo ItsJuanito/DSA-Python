@@ -272,32 +272,46 @@ Example 2:
 Input: matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
 Output: [[0,0,0,0],[0,4,5,0],[0,3,1,0]]
 '''
-
-def transpose(i, j, grid):
-    for x in range(len(grid)):
+# create a transform function that takes the coordinates and the matrix
+def transform(i, j, matrix):
+    # loop through each row
+    for x in range(len(matrix)):
+        # set flag to False
         flag = False
+        # if the x is the same as the i then set flag tp True
         if x == i:
             flag = True
-        for y in range(len(grid[x])):
+        # loop through each column
+        for y in range(len(matrix[x])):
+            # if x is equal to i then set the value to 0
             if flag:
-                grid[x][y] = 0
+                matrix[x][y] = 0
+            # if y is equal to j then set the value to 0
             if y == j:
-                grid[x][y] = 0
+                matrix[x][y] = 0
 
 def setZeroes(matrix):
     """
     Do not return anything, modify matrix in-place instead.
     """
+    # set m and n values
     m = len(matrix)
     n = len(matrix[0])
+    # create a deep copy of the matrix to edit the original matrix
     grid = copy.deepcopy(matrix)
+    # loop through each column
     for i in range(m):
+        # loop through each column
         for j in range(n):
+            # if the current value is a 0 then transform the matrix
             if grid[i][j] == 0:
-                transpose(i, j, matrix)
+                transform(i, j, matrix)
+    # return the matrix
     return matrix
 
 matrix = [[1,1,1],[1,0,1],[1,1,1]]
 print(setZeroes(matrix))
+# Output: [[1, 0, 1], [0, 0, 0], [1, 0, 1]]
 matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
 print(setZeroes(matrix))
+# Output: [[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]]
