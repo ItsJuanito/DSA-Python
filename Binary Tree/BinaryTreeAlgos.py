@@ -19,6 +19,7 @@ c = TreeNode(5)
 c.insert(3)
 c.insert(7)
 c.insert(4)
+c.insert(8)
 
 '''
 Tree Structre (a):
@@ -44,7 +45,7 @@ Tree Structure (c):
              /     \
             2       7 
           /   \   /   \
-        None   4 None None
+        None   4 None  8
 '''
 
 
@@ -57,16 +58,12 @@ Given the root of a binary tree, imagine yourself standing on the right side of 
 return the values of the nodes you can see ordered from top to bottom.
 
 Example 1:
-Input: root = [1,2,3,null,5,null,4]
-Output: [1,3,4]
+Input: root = [5, 2, 8, 1, 6]
+Output: [5, 8, 6]
 
 Example 2:
-Input: root = [1,null,3]
-Output: [1,3]
-
-Example 3:
-Input: root = []
-Output: []
+Input: root = [7, 5, 10, 9]
+Output: [7, 10, 9]
 '''
 
 def rightSideView(root):
@@ -81,7 +78,7 @@ def rightSideView(root):
         temp = []
         for _ in range(size):
             current = queue.pop()
-            temp.append(current.val)
+            temp.append(current.data)
             if current.left:
                 queue.insert(0, current.left)
             if current.right:
@@ -91,6 +88,11 @@ def rightSideView(root):
     for key in nodes:
         result.append(nodes[key][-1])
     return result
+
+print(rightSideView(a))
+# Output: [5, 8 , 6]
+print(rightSideView(b))
+# Output: [7, 10, 9]
 
 '''
 2583. Kth Largest Sum in a Binary Tree
@@ -107,19 +109,12 @@ than k levels in the tree, return -1.
 Note that two nodes are on the same level if they have the same distance from the root.
 
 Example 1:
-Input: root = [5,8,9,2,1,3,7,4,6], k = 2
-Output: 13
-Explanation: The level sums are the following:
-- Level 1: 5.
-- Level 2: 8 + 9 = 17.
-- Level 3: 2 + 1 + 3 + 7 = 13.
-- Level 4: 4 + 6 = 10.
-The 2nd largest level sum is 13.
+Input: root = [5, 2, 8, 1, 6], k = 2
+Output: 7
 
 Example 2:
-Input: root = [1,2,null,3], k = 1
-Output: 3
-Explanation: The largest level sum is 3.
+Input: root = [7, 5, 10, 9], k = 1
+Output: 15
 '''
 
 def kthLargestLevelSum(root, k):
@@ -134,7 +129,7 @@ def kthLargestLevelSum(root, k):
         size = len(queue)
         for _ in range(size):
             current = queue.pop()
-            sum_ += current.val
+            sum_ += current.data
             if current.left:
                 queue.insert(0, current.left)
             if current.right:
@@ -142,6 +137,11 @@ def kthLargestLevelSum(root, k):
         result.append(sum_)
     result = sorted(result)
     return result[-k] if k <= len(result) else -1
+
+print(kthLargestLevelSum(a, 2))
+# Output: 7
+print(kthLargestLevelSum(b, 1))
+# Output: 15
 
 '''
 1161. Maximum Level Sum of a Binary Tree
@@ -153,17 +153,12 @@ Given the root of a binary tree, the level of its root is 1, the level of its ch
 Return the smallest level x such that the sum of all the values of nodes at level x is maximal.
 
 Example 1:
-Input: root = [1,7,0,7,-8,null,null]
+Input: root = [5, 2, 8, 1, 6]
 Output: 2
-Explanation: 
-Level 1 sum = 1.
-Level 2 sum = 7 + 0 = 7.
-Level 3 sum = 7 + -8 = -1.
-So we return the level with the maximum sum which is level 2.
 
 Example 2:
-Input: root = [989,null,10250,98693,-89388,null,null,null,-32127]
-Output: 2
+Input: root = [5, 2, 7, 4, 8]
+Output: 3
 '''
 
 def maxLevelSum(root):
@@ -178,7 +173,7 @@ def maxLevelSum(root):
         size = len(queue)
         for _ in range(size):
             current = queue.pop()
-            sum_ += current.val
+            sum_ += current.data
             if current.left:
                 queue.insert(0, current.left)
             if current.right:
@@ -186,3 +181,8 @@ def maxLevelSum(root):
         level_sums[level] = sum_
     result = max(level_sums, key=level_sums.get)
     return result
+
+print(maxLevelSum(a))
+# Output: 2
+print(maxLevelSum(c))
+# Output: 3
