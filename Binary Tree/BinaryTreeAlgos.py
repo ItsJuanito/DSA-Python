@@ -69,20 +69,21 @@ Output: [7, 10, 9]
 def rightSideView(root):
     if not root:
         return
-    queue = [root]
+    queue = Queue()
+    queue.enqueue(root)
     nodes = dict()
     level = 0
-    while queue:
+    while queue.size() > 0:
         level += 1
-        size = len(queue)
+        size = queue.size()
         temp = []
         for _ in range(size):
-            current = queue.pop()
+            current = queue.dequeue()
             temp.append(current.data)
             if current.left:
-                queue.insert(0, current.left)
+                queue.enqueue(current.left)
             if current.right:
-                queue.insert(0, current.right)
+                queue.enqueue(current.right)
         nodes[level] = temp
     result = []
     for key in nodes:
@@ -120,20 +121,21 @@ Output: 15
 def kthLargestLevelSum(root, k):
     if not root:
         return 0
-    queue = [root]
+    queue = Queue()
+    queue.enqueue(root)
     level = 0
     result = []
-    while queue:
+    while queue.size() > 0:
         sum_ = 0
         level += 1
-        size = len(queue)
+        size = queue.size()
         for _ in range(size):
-            current = queue.pop()
+            current = queue.dequeue()
             sum_ += current.data
             if current.left:
-                queue.insert(0, current.left)
+                queue.enqueue(current.left)
             if current.right:
-                queue.insert(0, current.right)
+                queue.enqueue(current.right)
         result.append(sum_)
     result = sorted(result)
     return result[-k] if k <= len(result) else -1
@@ -164,20 +166,21 @@ Output: 3
 def maxLevelSum(root):
     if not root:
         return 0
-    queue = [root]
+    queue = Queue()
+    queue.enqueue(root)
     level_sums = dict()
     level = 0
-    while queue:
+    while queue.size() > 0:
         sum_ = 0
         level += 1
-        size = len(queue)
+        size = queue.size()
         for _ in range(size):
-            current = queue.pop()
+            current = queue.dequeue()
             sum_ += current.data
             if current.left:
-                queue.insert(0, current.left)
+                queue.enqueue(current.left)
             if current.right:
-                queue.insert(0, current.right)
+                queue.enqueue(current.right)
         level_sums[level] = sum_
     result = max(level_sums, key=level_sums.get)
     return result
