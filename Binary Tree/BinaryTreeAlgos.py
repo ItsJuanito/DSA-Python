@@ -67,31 +67,48 @@ Output: [7, 10, 9]
 '''
 
 def rightSideView(root):
+    # return if there is no root
     if not root:
         return
+    # initiate queue and populate it with the root
     queue = Queue()
     queue.enqueue(root)
+    # create a dictionary to hold every node of each level
     nodes = dict()
     level = 0
+    # while the queue is populated
     while queue.size() > 0:
+        # update the current level
         level += 1
+        # store the size of the queue
         size = queue.size()
+        # create a temperary list to store each node value
         temp = []
+        # loop through the level
         for _ in range(size):
+            # pop the node
             current = queue.dequeue()
+            # add the value of that node to temp
             temp.append(current.data)
+            # if the node has a left child then add it to the queue
             if current.left:
                 queue.enqueue(current.left)
+            # if the node has a right child then add it to the queue
             if current.right:
                 queue.enqueue(current.right)
+        # add temp to its corresponding level
         nodes[level] = temp
+    # create a result list to store the node visiible from the right
     result = []
+    # loop through each leve
     for key in nodes:
+        # add the right most visible value to result
         result.append(nodes[key][-1])
+    # return result
     return result
 
 print(rightSideView(a))
-# Output: [5, 8 , 6]
+# Output: [5, 8, 6]
 print(rightSideView(b))
 # Output: [7, 10, 9]
 
@@ -119,25 +136,41 @@ Output: 15
 '''
 
 def kthLargestLevelSum(root, k):
+    # if there is not a root then return 0
     if not root:
         return 0
+    # initiate queue and add the root
     queue = Queue()
     queue.enqueue(root)
+    # initiate level as 0
     level = 0
+    # create a result list
     result = []
+    # while the queue is populated
     while queue.size() > 0:
+        # reset sum
         sum_ = 0
+        # increment level by 1
         level += 1
+        # store size of the queue
         size = queue.size()
+        # loop through the leve
         for _ in range(size):
+            # pop the node form the queue
             current = queue.dequeue()
+            # add current value to the sum
             sum_ += current.data
+            # if the node has a left child then add it to the queue
             if current.left:
                 queue.enqueue(current.left)
+            # if the node has a right child then add it to the queue
             if current.right:
                 queue.enqueue(current.right)
+        # add the sum to result
         result.append(sum_)
+    # sort the list once done
     result = sorted(result)
+    # return the last k value if there is a k otherwise return -1
     return result[-k] if k <= len(result) else -1
 
 print(kthLargestLevelSum(a, 2))
@@ -164,25 +197,40 @@ Output: 3
 '''
 
 def maxLevelSum(root):
+    # if there is no root then return 0
     if not root:
         return 0
+    # initiate the queue and populate it with the root
     queue = Queue()
     queue.enqueue(root)
+    # create dictionary to store levels and their sums
     level_sums = dict()
     level = 0
+    # while the queue is not empty
     while queue.size() > 0:
+        # set current sum to 0
         sum_ = 0
+        # increment the sum
         level += 1
+        # store the size of the queue
         size = queue.size()
+        # loop through the level
         for _ in range(size):
+            # pop the node from the queue
             current = queue.dequeue()
+            # add the node's value to the sum
             sum_ += current.data
+            # if the node has a left child then add it to the queue
             if current.left:
                 queue.enqueue(current.left)
+            # if the node has a right child then add it to the queue
             if current.right:
                 queue.enqueue(current.right)
+        # add the corresponding sum to the level
         level_sums[level] = sum_
+    # get the key(level) with max value(sum) of the tree
     result = max(level_sums, key=level_sums.get)
+    # return the level with the max sum
     return result
 
 print(maxLevelSum(a))
