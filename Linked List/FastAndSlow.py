@@ -80,24 +80,37 @@ Do not modify the linked list.
 
 Example 1:
 Input: head = [a, b, c, d, e], pos = 2
-Output: tail connects to node index 1
+Output: tail connects to node index 2
 Explanation: There is a cycle in the linked list, where tail connects to the second node.
 '''
 
 def detectCycle(head):
+    # if there is no list then return none
     if not head:
         return None
+    # set slow and fast pointers equal to head
     slow = fast = head
+    # while the fast pointer isn't none
     while fast and fast.next:
+        # let slow travel normal speed
         slow = slow.next
+        # let fast travel twice as fast
         fast = fast.next.next
+        # if their is a cycle then break
         if fast == slow:
             break
+    # if there is no cycle then return none
     else:
         return None
+    # while the head does not equal to slow
     while head != slow:
+        # move to the next pointer
         head = head.next
         slow = slow.next
+    # return the head
     return head
 
 print(detectCycle(first).data)
+# Output: c
+print(detectCycle(this))
+# Output: None
