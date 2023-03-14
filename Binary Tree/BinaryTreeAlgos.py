@@ -263,19 +263,29 @@ Therefore, sum = 12 + 13 = 25.
 '''
 
 def sumNumbers(root):
+    # create list to store nums
     nums = []
+    # create dfs function that passes a node and string
     def dfs(root, string=""):
+        # if there is no root then return
         if not root:
             return
+        # append the value to the string
         string += str(root.data)
+        # if the left child is None and the right child is None:
         if (root.left is None) and (root.right is None):
+            # append the string to nums and reset the string to be empty
             nums.append(string)
             string=""
             return
+        # traverse to left and right children and passing in the strings
         dfs(root.left, string)
         dfs(root.right, string)
+    # call the function
     dfs(root)
+    # convert strings to integers
     nums = [int(num) for num in nums]
+    # return the sum of all values
     return sum(nums)
 
 print(sumNumbers(a))
